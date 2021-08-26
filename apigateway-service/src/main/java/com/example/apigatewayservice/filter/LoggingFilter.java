@@ -42,11 +42,11 @@ public class LoggingFilter extends AbstractGatewayFilterFactory<LoggingFilter.Co
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
 
-            log.info("Logging Filter: baseMessage -> {}",config.getBaseMessage());
+            log.info("Logging Filter: baseMessage -> {}", config.getBaseMessage());
 
 
-            if (config.isPreLogger()){
-                log.info("Logging PRE Filter: request id -> {}",request.getId());
+            if (config.isPreLogger()) {
+                log.info("Logging PRE Filter: request id -> {}", request.getId());
             }
             // Custom Post Filter
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
